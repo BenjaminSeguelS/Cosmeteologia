@@ -13,4 +13,7 @@ interface ClientDataDao {
 
     @Query("SELECT * FROM client_forms")
     fun getAll(): Flow<List<ClientData>>
+
+    @Query("SELECT * FROM client_forms WHERE correo = :email LIMIT 1")
+    fun getClientDataByEmailFlow(email: String): Flow<ClientData?>
 }
